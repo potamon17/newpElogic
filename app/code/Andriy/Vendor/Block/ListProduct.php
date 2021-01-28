@@ -12,7 +12,6 @@ use Magento\Catalog\Model\Layer\Resolver;
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\ResourceModel\Product\Collection;
 use Magento\Eav\Model\Entity\Collection\AbstractCollection;
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Data\Helper\PostHelper;
 use Magento\Framework\Url\Helper\Data;
 
@@ -87,20 +86,6 @@ class ListProduct extends \Magento\Catalog\Block\Product\ListProduct
         );
     }
 
-//    public function __construct(
-//
-//        \Magento\Catalog\Block\Product\Context $context,
-//        PostHelper $postDataHelper,
-//        VendorRepository $vendorRepository,
-//
-//        array $data = []
-//    ) {
-//
-//        $this->_postDataHelper = $postDataHelper;
-//        $this->vendorRepository = $vendorRepository;
-//        /** @noinspection PhpParamsInspection */
-//        parent::__construct($context, $data);
-//    }
     /** @noinspection PhpMissingReturnTypeInspection */
     public function getVendor($vendorId)
     {

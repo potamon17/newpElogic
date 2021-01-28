@@ -251,6 +251,7 @@ class ImageUploader
      * @return string[]
      *
      * @throws LocalizedException
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function saveFileToTmpDir($fileId)
     {

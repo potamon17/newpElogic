@@ -39,6 +39,7 @@ class Actions extends Column
      *
      * @param array $dataSource
      * @return array
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function prepareDataSource(array $dataSource)
     {

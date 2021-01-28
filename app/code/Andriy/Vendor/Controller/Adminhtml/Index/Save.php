@@ -1,21 +1,16 @@
 <?php /** @noinspection SpellCheckingInspection */
 
-
-
-
 namespace Andriy\Vendor\Controller\Adminhtml\Index;
 
+use Andriy\Vendor\Model\ImageUploader;
+use Andriy\Vendor\Model\VendorFactory;
 use Magento\Backend\App\Action;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Exception\LocalizedException;
-use Andriy\Vendor\Model\VendorFactory;
-use Andriy\Vendor\Model\ImageUploader;
 
 class Save extends Vendor
 {
-
     protected $vendorFactory;
     protected $imageUploader;
     /**
@@ -35,8 +30,9 @@ class Save extends Vendor
         parent::__construct($context);
     }
 
-
-    /** @noinspection PhpMissingReturnTypeInspection */
+    /** @noinspection PhpMissingReturnTypeInspection
+     * seve new or save edit
+     */
     public function execute()
     {
         /** @var Redirect $resultRedirect */
@@ -78,7 +74,6 @@ class Save extends Vendor
         } else {
             $data['image'] = null;
         }
-
 
         return $data;
     }

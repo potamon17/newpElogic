@@ -4,7 +4,6 @@ namespace Andriy\Vendor\Setup;
 
 class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
-
     public function install(\Magento\Framework\Setup\SchemaSetupInterface $setup, \Magento\Framework\Setup\ModuleContextInterface $context)
     {
         $installer = $setup;
@@ -64,7 +63,8 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                     null,
                     ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE],
-                    'Updated At')
+                    'Updated At'
+                )
                 ->setComment('Post Table');
             $installer->getConnection()->createTable($table);
 

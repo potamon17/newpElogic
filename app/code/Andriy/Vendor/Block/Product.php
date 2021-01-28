@@ -8,9 +8,9 @@ class Product extends \Magento\Framework\View\Element\Template
 {
     protected $_registry;
     protected $_storeManager;
-
     protected $scopeConfig;
     protected $vendorRepository;
+
     public function __construct(
         VendorRepository $vendorRepository,
         \Magento\Backend\Block\Template\Context $context,
@@ -22,23 +22,29 @@ class Product extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
     }
 
+    /** @noinspection PhpMissingReturnTypeInspection */
     public function getCurrentProduct()
     {
         return $this->_registry->registry('current_product');
     }
+
     public function getVendorId()
     {
         return $this->getCurrentProduct()->getVendorId();
     }
 
-    /** @noinspection PhpMissingReturnTypeInspection */
+    /** @noinspection
+     * get vendor by id
+     */
     public function getVendor()
     {
         $vendorId = $this->getVendorId();
         return $this->vendorRepository->getById($vendorId);
     }
 
-    /** @noinspection PhpMissingReturnTypeInspection */
+    /** @noinspection
+     * return vendor img
+     */
     public function getVendorImg()
     {
         $img = $this->getVendor()->getImage();

@@ -41,6 +41,7 @@ class DataProvider extends AbstractDataProvider
      * Get data
      *
      * @return array
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function getData()
     {
@@ -69,6 +70,7 @@ class DataProvider extends AbstractDataProvider
         return $this->loadedData;
     }
 
+    /** @noinspection PhpMissingReturnTypeInspection */
     public function getMediaUrl()
     {
         $mediaUrl = $this->storeManager->getStore()

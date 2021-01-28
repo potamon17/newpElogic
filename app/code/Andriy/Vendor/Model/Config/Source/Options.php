@@ -21,6 +21,7 @@ class Options extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
 
     /**
      * @return array|null
+     * @noinspection PhpDocSignatureInspection
      */
     public function __construct(
         OptionFactory $optionFactory,
@@ -35,6 +36,7 @@ class Options extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
      * Get all options
      *
      * @return array
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function getAllOptions()
     {
@@ -54,6 +56,7 @@ class Options extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
      *
      * @param string|integer $value
      * @return string|bool
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function getOptionText($value)
     {
@@ -69,6 +72,7 @@ class Options extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
      * Retrieve flat column definition
      *
      * @return array
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function getFlatColumns()
     {

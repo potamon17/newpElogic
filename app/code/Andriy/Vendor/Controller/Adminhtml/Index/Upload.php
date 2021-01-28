@@ -38,6 +38,7 @@ class Upload extends Action implements HttpPostActionInterface
      * Upload file controller action
      *
      * @return ResultInterface
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function execute()
     {

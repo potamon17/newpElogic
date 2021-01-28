@@ -29,18 +29,16 @@ class UpgradeData implements UpgradeDataInterface
                 \Magento\Catalog\Model\Product::ENTITY,
                 'vendor_id',/* Custom Attribute Code */
                 [
-                    'group' => 'Product Details',/* Group name in which you want
-                                              to display your custom attribute */
-                    'type' => 'int',/* Data type in which formate your value save in database*/
+                    'group' => 'Product Details',
+                    'type' => 'int',
                     'backend' => '',
                     'frontend' => '',
-                    'label' => 'Vendor', /* lablel of your attribute*/
+                    'label' => 'Vendor', /* lablel of attribute*/
                     'input' => 'select',
                     'class' => '',
                     'source' => 'Andriy\Vendor\Model\Config\Source\Options',
-                    /* Source of your select type custom attribute options*/
+                    /* Source of select type custom attribute options*/
                     'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
-                    /*Scope of your attribute */
                     'visible' => true,
                     'required' => false,
                     'user_defined' => false,

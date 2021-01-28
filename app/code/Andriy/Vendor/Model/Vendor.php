@@ -13,17 +13,12 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
     public $vendorFactory;
     protected function _construct(
 
-//        VendorFactory $vendorFactory
-    )
-    {
-
-//        $this->vendorFactory = $vendorFactory;
+    ) {
         $this->_init('Andriy\Vendor\Model\ResourceModel\Vendor');
     }
 
     public function getIdentities()
     {
-
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
 
@@ -33,14 +28,12 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
         return $values;
     }
 
+    /**
+     * @return array|mixed|null
+     */
     public function getVendorId()
     {
         return $this->getData('post_id');
     }
-//    public function getTitle()
-//    {
-//        return $this->getData(self::TITLE);
-//    }
-
 
 }

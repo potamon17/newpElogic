@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Andriy\Vendor\Ui\Component\Vendor\Listing\Column;
 
 use Magento\Backend\Model\UrlInterface;
@@ -57,13 +56,14 @@ class Image extends Column
      * @param array $dataSource
      * @return array
      * @throws NoSuchEntityException
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
             $path = $this->storeManager->getStore()->getBaseUrl(
-                    \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
-                ) . 'andriy_vendor/tmp/feature/';
+                \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
+            ) . 'andriy_vendor/tmp/feature/';
             $baseImage = $this->assetRepo->getUrl('Andriy_Vendor::images/vendor.png');
             $fieldName = $this->getData('name');
             foreach ($dataSource['data']['items'] as & $item) {
