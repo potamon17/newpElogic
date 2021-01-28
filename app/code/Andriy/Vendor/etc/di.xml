@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Magento\Catalog\Block\Product\ListProduct" type="Andriy\Vendor\Block\ListProduct" />
+ <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+  <arguments>
+   <argument name="collections" xsi:type="array">
+     <item name="andriy_vendor_vendor_listing_data_source" xsi:type="string">AndriyVendorVendorCollection</item>
+   </argument>
+  </arguments>
+ </type>
+ <virtualType name="AndriyVendorVendorCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+   <arguments>
+     <argument name="mainTable" xsi:type="string">andriy_vendor</argument>
+     <argument name="resourceModel" xsi:type="string">Andriy\Vendor\Model\ResourceModel\Vendor</argument>
+   </arguments>
+ </virtualType>
+    <type name="Andriy\Vendor\Controller\Adminhtml\Index\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Andriy\Vendor\ReferenceImageUpload</argument>
+        </arguments>
+    </type>
+    <virtualType name="Andriy\Vendor\ReferenceImageUpload" type="Andriy\Vendor\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">andriy_vendor/tmp/feature</argument>
+            <argument name="basePath" xsi:type="string">andriy_vendor/feature</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="jpg" xsi:type="string">image/jpg</item>
+                <item name="jpeg" xsi:type="string">image/jpeg</item>
+                <item name="gif" xsi:type="string">image/gif</item>
+                <item name="png" xsi:type="string">image/png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+
+
+</config>

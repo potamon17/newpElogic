@@ -1,45 +1,48 @@
-#--------------------------#
-# Magento Default Files    #
-#--------------------------#
+# Metadata
+/.buildpath
+/.cache
+/.metadata
+/.project
+/.settings
+atlassian*
+/nbproject
+/sitemap
+/.idea
+/.gitattributes
+/.github
 
-/PATCH_*.sh
+# Magento specific configuration
+/app/.htaccess
+/app/bootstrap.php
+/app/autoload.php
+/app/functions.php
+/app/etc/di.xml
+/app/etc/vendor_path.php
+/app/etc/NonComposerComponentRegistration.php
+/app/etc/env.php
 
-/app/etc/local.xml
+# Files re-generated through composer
+/CHANGELOG.md
+/CONTRIBUTING.md
+/COPYING.txt
+/ISSUE_TEMPLATE.md
+/LICENSE_AFL.txt
+/LICENSE.txt
+/Gruntfile.js.sample
+/nginx.conf.sample
+/package.json.sample
+/php.ini.sample
+/vendor
+/bin
+/dev
+/lib
+/pub
+/setup
+/var
+/generated
 
-/media/*
-!/media/.htaccess
 
-!/media/customer
-/media/customer/*
-!/media/customer/.htaccess
-
-!/media/dhl
-/media/dhl/*
-!/media/dhl/logo.jpg
-
-!/media/downloadable
-/media/downloadable/*
-!/media/downloadable/.htaccess
-
-!/media/xmlconnect
-/media/xmlconnect/*
-
-!/media/xmlconnect/custom
-/media/xmlconnect/custom/*
-!/media/xmlconnect/custom/ok.gif
-
-!/media/xmlconnect/original
-/media/xmlconnect/original/*
-!/media/xmlconnect/original/ok.gif
-
-!/media/xmlconnect/system
-/media/xmlconnect/system/*
-!/media/xmlconnect/system/ok.gif
-
-/var/*
-!/var/.htaccess
-
-!/var/package
-/var/package/*
-!/var/package/*.xml
-
+# Excludes (or a better alternative might be to symlink this to shared folders
+!/pub/media/catalog
+!/pub/media/downloadable
+!/var/composer_home

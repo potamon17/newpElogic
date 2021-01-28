@@ -1,0 +1,12 @@
+<?php
+/** @noinspection PhpUndefinedVariableInspection
+ * $block = /Andriy/Vendor/Block/Product
+ */
+//echo $block->getVendor()->getImageUrl();
+?>
+<?php if ($block->getVendorId() != null): ?>
+<?php //die(var_dump($block->getVendorImg()));?>
+<div class="1111">
+    <img style="width: 50px; height: 50px;" src="<?php echo $block->getVendorImg(); ?>">
+</div>
+<?php endif ?>

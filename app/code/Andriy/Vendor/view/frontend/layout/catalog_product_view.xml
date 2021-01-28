@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <referenceContainer name="product.info.stock.sku">
+            <container name="vendor.image" htmlClass="store-info-wrapper" htmlTag="div" after="product.info.stock.sku">
+                <block class="Andriy\Vendor\Block\Product" name="store-info-block" template="Andriy_Vendor::vendor.phtml"/>
+            </container>
+    </referenceContainer>
+
+
+
+</page>
