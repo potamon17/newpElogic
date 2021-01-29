@@ -195,6 +195,7 @@ class ImageUploader
      * @param string $imageName
      *
      * @return string
+     * @noinspection PhpPureAttributeCanBeAddedInspection
      */
     public function getFilePath($path, $imageName)
     {
@@ -209,6 +210,7 @@ class ImageUploader
      * @return string
      *
      * @throws LocalizedException
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function moveFileFromTmp($imageName)
     {

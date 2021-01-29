@@ -12,6 +12,7 @@ class ResetButton implements ButtonProviderInterface
 {
     /**
      * @return array
+     * @noinspection PhpArrayShapeAttributeCanBeAddedInspection
      */
     public function getButtonData()
     {
