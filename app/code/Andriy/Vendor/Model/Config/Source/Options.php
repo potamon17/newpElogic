@@ -26,7 +26,8 @@ class Options extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
     public function __construct(
         OptionFactory $optionFactory,
         CollectionFactory $collectionFactory
-    ) {
+    )
+    {
         $this->collection = $collectionFactory->create();
         $this->optionFactory = $optionFactory;
         //you can use this if you want to prepare options dynamically
@@ -43,10 +44,12 @@ class Options extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
         $items = $this->collection->getItems();
 
         foreach ($items as $item) {
-            $this->_options[] = [
-                'label' => __($item['name']),
-                'value' => $item['post_id'],
-            ];
+            if ($item['status'] == 1) {
+                $this->_options[] = [
+                    'label' => __($item['name']),
+                    'value' => $item['post_id'],
+                ];
+            }
         }
         return $this->_options;
     }
