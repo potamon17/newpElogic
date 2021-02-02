@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/andriyVendor/:blockId" method="GET">
+        <service class="Andriy\Vendor\Api\VendorRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="Andriy_Vendor::Vendor"/>
+        </resources>
+    </route>
+    <route url="/V1/andriyVendor" method="POST">
+        <service class="Andriy\Vendor\Api\VendorRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Andriy_Vendor::Vendor"/>
+        </resources>
+    </route>
+    <route url="/V1/andriyVendor/:id" method="PUT">
+        <service class="Andriy\Vendor\Api\VendorRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Andriy_Vendor::Vendor"/>
+        </resources>
+    </route>
+    <route url="/V1/andriyVendor/:blockId" method="DELETE">
+        <service class="Andriy\Vendor\Api\VendorRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Andriy_Vendor::Vendor"/>
+        </resources>
+    </route>
+</routes>

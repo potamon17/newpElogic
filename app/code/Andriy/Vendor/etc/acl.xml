@@ -6,9 +6,6 @@
                 <resource id="Andriy_Vendor::vendor" title="Custom Menu" sortOrder="10" >
                     <resource id="Andriy_Vendor::post" title="Create" sortOrder="50" >
                         <resource id="Andriy_Vendor::Vendor" title="Create" sortOrder="60" />
-<!--                        <resource id="Andriy_Vendor::delete" title="Delete" sortOrder="100" />-->
-<!--                        <resource id="Andriy_Vendor::view" title="View" sortOrder="150"/>-->
-<!--                        <resource id="Andriy_Vendor::new" title="new" sortOrder="160"/>-->
                     </resource>
                 </resource>
             </resource>

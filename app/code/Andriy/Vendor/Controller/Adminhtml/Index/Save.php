@@ -2,8 +2,10 @@
 
 namespace Andriy\Vendor\Controller\Adminhtml\Index;
 
+use Andriy\Vendor\Api\VendorRepositoryInterface;
 use Andriy\Vendor\Model\ImageUploader;
 use Andriy\Vendor\Model\VendorFactory;
+use Andriy\Vendor\Model\VendorRepository;
 use Magento\Backend\App\Action;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\App\Request\DataPersistorInterface;
@@ -17,16 +19,22 @@ class Save extends Vendor
      * @return void
      */
     protected $dataPersistor;
-
+    protected $vendorRepository;
+    protected $vendorRepositoryInterface;
     public function __construct(
         Action\Context $context,
         DataPersistorInterface $dataPersistor,
         VendorFactory $vendorFactory,
-        ImageUploader $imageUploader
+        ImageUploader $imageUploader,
+        VendorRepositoryInterface $vendorRepositoryInterface = null,
+        VendorRepository $vendorRepository
     ) {
+        $this->vendorRepositoryInterface = $vendorRepositoryInterface;
         $this->imageUploader = $imageUploader;
         $this->dataPersistor = $dataPersistor;
         $this->vendorFactory = $vendorFactory;
+
+        $this->vendorRepository = $vendorRepository;
         parent::__construct($context);
     }
 
@@ -42,13 +50,14 @@ class Save extends Vendor
             $model = $this->vendorFactory->create();
 
             try {
-                $data = $this->_filterFaqGroupData($data);
-
-                $model->addData($data);
+                $data = $this->_filterVendorData($data);
                 $this->messageManager->addSuccessMessage(__('You saved the FAQ.'));
                 $this->dataPersistor->clear('andriy_vendor_vendor');
+                //die(var_dump($model));
+                $model->setData($data);
+//                die(var_dump($model));
+                $this->vendorRepositoryInterface->save($model);
 
-                $model->save();
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['post_id' => $model->getId()]);
                 }
@@ -66,7 +75,7 @@ class Save extends Vendor
     }
 
     /** @noinspection PhpMissingReturnTypeInspection */
-    protected function _filterFaqGroupData(array $rawData)
+    protected function _filterVendorData(array $rawData)
     {
         $data = $rawData;
         if (isset($data['image'][0]['name'])) {

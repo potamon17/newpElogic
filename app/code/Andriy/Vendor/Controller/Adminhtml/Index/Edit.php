@@ -11,15 +11,16 @@ class Edit extends \Andriy\Vendor\Controller\Adminhtml\Index\Vendor
 {
     protected $resultPageFactory;
 
-    protected $faqRepository;
+    protected $vendorRepository;
+
 
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
-        VendorRepository $faqRepository
+        VendorRepository $vendorRepository
     ) {
         $this->resultPageFactory = $resultPageFactory;
-        $this->faqRepository = $faqRepository;
+        $this->vendorRepository = $vendorRepository;
         parent::__construct($context);
     }
 
@@ -31,11 +32,11 @@ class Edit extends \Andriy\Vendor\Controller\Adminhtml\Index\Vendor
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
 
-        if ($faqGroupId = (int) $this->getRequest()->getParam('post_id')) {
+        if ($postId = (int) $this->getRequest()->getParam('post_id')) {
             try {
-                $faq = $this->faqRepository->getById($faqGroupId);
+                $vendor = $this->vendorRepository->get($postId);
 
-                $resultPage->getConfig()->getTitle()->prepend(__($faq->getName()));
+                $resultPage->getConfig()->getTitle()->prepend(__($vendor->getName()));
             } catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
                 $this->messageManager->addErrorMessage(__('This Vendor no longer exists.'));
 

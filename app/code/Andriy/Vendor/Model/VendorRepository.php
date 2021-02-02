@@ -1,11 +1,16 @@
-<?php /** @noinspection PhpHierarchyChecksInspection */
+<?php
 
 namespace Andriy\Vendor\Model;
 
-use Andriy\Vendor\Model\ResourceModel\Vendor as ResourceVendor;
+use Magento\Framework\Exception\CouldNotDeleteException;
+use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Exception\ValidatorException;
+use Andriy\Vendor\Model\ResourceModel\Vendor as ResourceVendor;
+use Andriy\Vendor\Api\Data;
+use Andriy\Vendor\Api\VendorRepositoryInterface;
 
-class VendorRepository
+class VendorRepository implements VendorRepositoryInterface
 {
     protected $resource;
 
@@ -20,21 +25,21 @@ class VendorRepository
     }
 
     /** @noinspection PhpMissingReturnTypeInspection */
-    public function getById($vendorId)
+    public function get($postId)
     {
         $vendor = $this->vendorFactory->create();
 
 
-        $vendor->getResource()->load($vendor, $vendorId);
+        $vendor->load($postId);
         if (!$vendor->getId()) {
-            throw new NoSuchEntityException(__('Faq with id "%1" does not exist.', $vendorId));
+            throw new NoSuchEntityException(__('Faq with id "%1" does not exist.', $postId));
         }
 
         return $vendor;
     }
 
     /** @noinspection PhpMissingReturnTypeInspection */
-    public function delete($vendor)
+    public function delete(Data\VendorInterface $vendor)
     {
         try {
             $this->resource->delete($vendor);
@@ -51,10 +56,23 @@ class VendorRepository
     /**
      * {@inheritdoc}
      */
-    public function deleteById($vendorId)
+    public function deleteById($postId)
     {
         /** @noinspection PhpUnhandledExceptionInspection */
         /** @noinspection PhpParamsInspection */
-        return $this->delete($this->getById($vendorId));
+        return $this->delete($this->get($postId));
+    }
+
+    /** @noinspection PhpMissingReturnTypeInspection */
+    public function save(Data\VendorInterface $vendor)
+    {
+
+        try {
+            /** @noinspection PhpParamsInspection */
+            $this->resource->save($vendor);
+        } catch (\Exception $exception) {
+            throw new CouldNotSaveException(__($exception->getMessage()));
+        }
+        return $vendor;
     }
 }

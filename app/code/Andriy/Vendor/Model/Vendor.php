@@ -1,7 +1,10 @@
 <?php
 namespace Andriy\Vendor\Model;
 
-class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
+use Andriy\Vendor\Api\Data\VendorInterface;
+use Magento\Framework\Api\CustomAttributesDataInterface;
+
+class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface, \Andriy\Vendor\Api\Data\VendorInterface
 {
     const CACHE_TAG = 'andriy_vendor_vendor';
     const VENDOR_ID = 'post_id';
@@ -36,4 +39,99 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
         return $this->getData('post_id');
     }
 
+    public function getCustomAttribute($attributeCode)
+    {
+        // TODO: Implement getCustomAttribute() method.
+    }
+
+    public function setCustomAttribute($attributeCode, $attributeValue)
+    {
+        // TODO: Implement setCustomAttribute() method.
+    }
+
+    public function getCustomAttributes()
+    {
+        // TODO: Implement getCustomAttributes() method.
+    }
+
+    public function setCustomAttributes(array $attributes)
+    {
+        // TODO: Implement setCustomAttributes() method.
+    }
+
+    public function getPostId()
+    {
+        // TODO: Implement getPostId() method.
+    }
+
+    public function setPostId($postId)
+    {
+        return $this->setData(self::POST_ID, $postId);
+    }
+
+    public function getName()
+    {
+        // TODO: Implement getName() method.
+    }
+
+    public function setName($name)
+    {
+
+        return $this->setData(self::NAME, $name);
+    }
+
+    public function getDescription()
+    {
+        // TODO: Implement getDescription() method.
+    }
+
+    public function setDescription($description)
+    {
+
+        return $this->setData(self::DESCRIPTION, $description);
+    }
+
+    public function getIsActive()
+    {
+        // TODO: Implement getIsActive() method.
+    }
+
+    public function setIsActive($isActive)
+    {
+
+        return $this->setData(self::IS_ACTIVE, $isActive);
+    }
+
+    public function getImage()
+    {
+        // TODO: Implement getImage() method.
+    }
+
+    public function setImage($image)
+    {
+
+        return $this->setData(self::IMAGE, $image);
+    }
+
+    public function getCreatedAt()
+    {
+        // TODO: Implement getCreatedAt() method.
+    }
+
+    public function setCreatedAt($createdAt)
+    {
+
+        return $this->setData(self::CREATED_AT, $createdAt);
+    }
+
+    public function getUpdatedAt()
+    {
+        // TODO: Implement getUpdatedAt() method.
+    }
+
+    public function setUpdatedAt($updatedAt)
+    {
+
+        return $this->setData(self::UPDATED_AT, $updatedAt);
+    }
 }
