@@ -26,8 +26,8 @@ class Save extends Vendor
         DataPersistorInterface $dataPersistor,
         VendorFactory $vendorFactory,
         ImageUploader $imageUploader,
-        VendorRepositoryInterface $vendorRepositoryInterface = null,
-        VendorRepository $vendorRepository
+        VendorRepositoryInterface $vendorRepositoryInterface,
+        VendorRepository $vendorRepository = null
     ) {
         $this->vendorRepositoryInterface = $vendorRepositoryInterface;
         $this->imageUploader = $imageUploader;
@@ -49,15 +49,13 @@ class Save extends Vendor
             /** @noinspection PhpUndefinedMethodInspection */
             $model = $this->vendorFactory->create();
 
+            $data = $this->_filterVendorData($data);
+            $model->setData($data);
             try {
-                $data = $this->_filterVendorData($data);
                 $this->messageManager->addSuccessMessage(__('You saved the FAQ.'));
                 $this->dataPersistor->clear('andriy_vendor_vendor');
                 //die(var_dump($model));
-                $model->setData($data);
-//                die(var_dump($model));
                 $this->vendorRepositoryInterface->save($model);
-
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['post_id' => $model->getId()]);
                 }

@@ -61,7 +61,7 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
 
     public function getPostId()
     {
-        // TODO: Implement getPostId() method.
+        return $this->getData(self::POST_ID);
     }
 
     public function setPostId($postId)
@@ -71,7 +71,7 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
 
     public function getName()
     {
-        // TODO: Implement getName() method.
+        return $this->getData(self::NAME);
     }
 
     public function setName($name)
@@ -82,7 +82,7 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
 
     public function getDescription()
     {
-        // TODO: Implement getDescription() method.
+        return $this->getData(self::DESCRIPTION);
     }
 
     public function setDescription($description)
@@ -93,7 +93,7 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
 
     public function getIsActive()
     {
-        // TODO: Implement getIsActive() method.
+        return $this->getData(self::IS_ACTIVE);
     }
 
     public function setIsActive($isActive)
@@ -104,7 +104,7 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
 
     public function getImage()
     {
-        // TODO: Implement getImage() method.
+        return $this->getData(self::IMAGE);
     }
 
     public function setImage($image)
@@ -115,7 +115,7 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
 
     public function getCreatedAt()
     {
-        // TODO: Implement getCreatedAt() method.
+        return $this->getData(self::CREATED_AT);
     }
 
     public function setCreatedAt($createdAt)
@@ -126,7 +126,7 @@ class Vendor extends \Magento\Framework\Model\AbstractModel implements \Magento\
 
     public function getUpdatedAt()
     {
-        // TODO: Implement getUpdatedAt() method.
+        return $this->getData(self::UPDATED_AT);
     }
 
     public function setUpdatedAt($updatedAt)

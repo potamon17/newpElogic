@@ -66,7 +66,6 @@ class VendorRepository implements VendorRepositoryInterface
     /** @noinspection PhpMissingReturnTypeInspection */
     public function save(Data\VendorInterface $vendor)
     {
-
         try {
             /** @noinspection PhpParamsInspection */
             $this->resource->save($vendor);
