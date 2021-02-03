@@ -2,27 +2,27 @@
 
 namespace Andriy\Vendor\Controller\Adminhtml\Index;
 
-use Andriy\Vendor\Model\VendorRepository;
 use Magento\Backend\App\Action\Context;
 use Andriy\Vendor\Model\Vendor as Vendor;
 use Magento\Framework\Controller\ResultInterface;
+use Andriy\Vendor\Api\VendorRepositoryInterface;
 
 class Delete extends \Andriy\Vendor\Controller\Adminhtml\Index\Vendor
 {
 
 
-    protected $vendorRepository;
+    protected $vendorRepositoryInterface;
 
     /**
      * Delete constructor.
      * @param Context $context
-     * @param VendorRepository $vendorRepository
+     * @param VendorRepositoryInterface $vendorRepositoryInterface
      */
     public function __construct(
         Context $context,
-        VendorRepository $vendorRepository
+        VendorRepositoryInterface $vendorRepositoryInterface
     ) {
-        $this->vendorRepository = $vendorRepository;
+        $this->vendorRepositoryInterface = $vendorRepositoryInterface;
         parent::__construct($context);
     }
 
@@ -34,7 +34,7 @@ class Delete extends \Andriy\Vendor\Controller\Adminhtml\Index\Vendor
         $id = $this->getRequest()->getParam('post_id');
         if ($id) {
             try {
-                $this->vendorRepository->deleteById($id);
+                $this->vendorRepositoryInterface->deleteById($id);
                 $this->messageManager->addSuccessMessage(__('You deleted the Vendor.'));
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {

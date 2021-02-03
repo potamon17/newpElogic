@@ -1,0 +1,19 @@
+{
+    "andriy_vendor": {
+        "column": {
+            "post_id": true,
+            "name": true,
+            "description": true,
+            "status": true,
+            "image": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "ANDRIY_VENDOR_CREATED_AT_UPDATED_AT_STATUS": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

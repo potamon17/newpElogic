@@ -19,22 +19,18 @@ class Save extends Vendor
      * @return void
      */
     protected $dataPersistor;
-    protected $vendorRepository;
     protected $vendorRepositoryInterface;
     public function __construct(
         Action\Context $context,
         DataPersistorInterface $dataPersistor,
         VendorFactory $vendorFactory,
         ImageUploader $imageUploader,
-        VendorRepositoryInterface $vendorRepositoryInterface,
-        VendorRepository $vendorRepository = null
+        VendorRepositoryInterface $vendorRepositoryInterface
     ) {
         $this->vendorRepositoryInterface = $vendorRepositoryInterface;
         $this->imageUploader = $imageUploader;
         $this->dataPersistor = $dataPersistor;
         $this->vendorFactory = $vendorFactory;
-
-        $this->vendorRepository = $vendorRepository;
         parent::__construct($context);
     }
 
@@ -54,7 +50,6 @@ class Save extends Vendor
             try {
                 $this->messageManager->addSuccessMessage(__('You saved the FAQ.'));
                 $this->dataPersistor->clear('andriy_vendor_vendor');
-                //die(var_dump($model));
                 $this->vendorRepositoryInterface->save($model);
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['post_id' => $model->getId()]);
